@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Centro Quiropráctico Conteña
 
-## Getting Started
+Sitio multipágina del centro en Ayacucho. Next.js 16 (App Router), React 19, TypeScript y Tailwind CSS 4.
 
-First, run the development server:
+La propuesta visual de referencia sigue en la carpeta hermana `centro-contena-web/`. Este proyecto no la reemplaza.
+
+## Desarrollo
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000). La raíz redirige a `/es`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Idiomas: `/es`, `/en`, `/quy`. El quechua de Ayacucho (`quy`) es una traducción de trabajo y conviene revisarla con un hablante.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+- `npm run dev` — desarrollo con Turbopack
+- `npm run build` — build de producción (`output: "standalone"`)
+- `npm run start` — sirve el build
+- `npm run lint` — ESLint
 
-To learn more about Next.js, take a look at the following resources:
+## Contacto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El botón y el formulario abren WhatsApp (`wa.me/51976367843`). Si defines estas variables, el formulario también envía un correo con Resend:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+NEXT_PUBLIC_SITE_URL=https://centrocontena.com
+CONTACT_TO_EMAIL=carloscontena@gmail.com
+CONTACT_FROM_EMAIL=notificaciones@tu-dominio.com
+RESEND_API_KEY=
+```
 
-## Deploy on Vercel
+Sin esas claves, la cita sigue saliendo por WhatsApp.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contenido
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Teléfonos, horario, servicios y testimonios salen de lo publicado en centrocontena.com. No hay precios ni títulos académicos hasta que el centro los confirme. Fotos y videos viven en `public/` para no depender del sitio anterior.
