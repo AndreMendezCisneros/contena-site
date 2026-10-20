@@ -36,3 +36,13 @@ No se trasladan precios, resultados prometidos, políticas de seguro, credencial
 6. Reserva con disponibilidad real si el centro dispone de una agenda conectada. Actualmente WhatsApp.
 
 Las fuentes se consultaron para estructura y usabilidad. No se copiaron textos clínicos ni activos gráficos ajenos.
+
+## Aplicación de las evaluaciones de diseño
+
+- Referencias editoriales: https://www.operationtechnology.com/blog/best-chiropractic-website-designs/ y https://www.zarla.com/inspiration/chiropractor . Son análisis de proveedores de diseño, no estudios con pacientes ni premios independientes.
+- Tres entradas por intención: conocer al profesional, primera visita y reserva, inspiradas en la organización destacada de HealthFirst.
+- Índice de servicios con anclas; fotos completas y navegación directa, manteniendo la composición editorial vinculada a Thrive, South Loop y MVP.
+- Ficha de expectativas con contenido ya disponible en los tres idiomas y acceso real a WhatsApp.
+- Retrato enmarcado, jerarquía en testimonios y ubicación; portada aprobada sin cambios.
+- El resumen del profesional en inicio utiliza la presentación existente del centro. La ficha interior conserva la información pendiente de validación de credenciales.
+- Validación: compilación de producción y TypeScript correctos. La revisión visual de esta iteración no se pudo realizar: navegador local desactivado en Work.

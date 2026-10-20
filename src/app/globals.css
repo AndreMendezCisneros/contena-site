@@ -302,3 +302,38 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .home-faq { grid-template-columns: 1fr; gap: 40px; padding: 65px 6%; }
   .home-faq-list summary { font-size: 17px; }
 }
+
+/* Clear entry points inspired by the reviewed clinic websites. */
+.home-shortcuts.intent-paths { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; padding-bottom: 90px; }
+.home-shortcuts.intent-paths a { position: relative; display: flex; flex-direction: column; justify-content: start; gap: 12px; padding: 30px 58px 32px 26px; border-top: 1px solid #b9c4af; border-bottom: 1px solid #b9c4af; border-right: 1px solid #b9c4af; transition: background .25s; }
+.home-shortcuts.intent-paths a:first-child { border-left: 1px solid #b9c4af; }
+.home-shortcuts.intent-paths a:last-child { background: #e4eccf; }
+.home-shortcuts.intent-paths a:hover { background: #dce8ba; }
+.home-shortcuts.intent-paths .intent-title { font-family: var(--font-syne),sans-serif; font-size: clamp(20px,1.7vw,26px); color: #173b30; line-height: 1.2; letter-spacing: -.03em; }
+.home-shortcuts.intent-paths .intent-description { color: #626e5c; font-size: 13px; line-height: 1.7; }
+.home-shortcuts.intent-paths .intent-arrow { position: absolute; right: 23px; top: 30px; color: #425929; font-size: 23px; }
+.service-index { display: flex; flex-wrap: wrap; gap: 10px; margin: -25px 0 32px; }
+.service-index a { display: flex; gap: 20px; align-items: center; padding: 11px 17px; border: 1px solid #bcc7af; border-radius: 30px; font-size: 12px; color: #465b3e; transition: background .2s; }
+.service-index a:hover { background: #e2ebcf; }
+.service-editorial[id] { scroll-margin-top: 100px; }
+.visit-expectations { grid-column: 1 / -1; display: grid; grid-template-columns: .8fr 1.2fr; gap: 24px 9%; margin-top: 65px; padding: 40px; background: #f4f6ed; border-radius: 4px; }
+.visit-expectations h3 { font-family: var(--font-syne),sans-serif; font-size: 30px; line-height: 1.2; letter-spacing: -.035em; }
+.visit-expectations ul { display: flex; flex-direction: column; gap: 17px; }
+.visit-expectations li { display: flex; gap: 15px; font-size: 14px; line-height: 1.7; color: #52634c; }
+.visit-expectations li span { color: #658232; }
+.visit-expectations > a { grid-column: 2; display: flex; justify-content: space-between; gap: 25px; align-items: center; background: #173b30; color: #e4f5af; padding: 17px 22px; font-size: 13px; }
+.home-page .specialist-section .specialist-photo { padding: 16px; background: #e3e9d8; }
+.home-stories .stories-heading { border-top: 1px solid #ffffff24; padding-top: 35px; }
+.home-page .location-layout { gap: 35px; }
+.home-page .location-layout iframe { border-radius: 4px; }
+.home-page .home-contact .map-link { padding-bottom: 12px; border-bottom: 1px solid #b6c2a7; }
+@media(max-width:767px) {
+  .home-shortcuts.intent-paths { grid-template-columns: 1fr; padding-bottom: 60px; }
+  .home-shortcuts.intent-paths a { border-left: 1px solid #b9c4af; border-bottom: 0; padding: 25px 55px 25px 23px; }
+  .home-shortcuts.intent-paths a:last-child { border-bottom: 1px solid #b9c4af; }
+  .service-index { margin-top: -20px; gap: 8px; }
+  .service-index a { padding: 10px 12px; font-size: 11px; }
+  .visit-expectations { display: flex; flex-direction: column; margin-top: 40px; padding: 28px 22px; }
+  .visit-expectations h3 { font-size: 26px; }
+  .visit-expectations > a { margin-top: 8px; }
+}

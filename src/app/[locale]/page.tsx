@@ -48,11 +48,10 @@ export default async function HomePage({
         </Reveal>
       </section>
 
-      <nav className="home-shortcuts" aria-label={dict.footer.quick}>
-        <a href="#servicios">{dict.nav.services}<span aria-hidden="true">↘</span></a>
-        <a href="#primera-visita">{dict.nav.firstVisit}<span aria-hidden="true">↘</span></a>
-        <a href="#especialista">{dict.nav.specialist}<span aria-hidden="true">↘</span></a>
-        <a href="#contacto">{dict.contact.directions}<span aria-hidden="true">↘</span></a>
+      <nav className="home-shortcuts intent-paths" aria-label={dict.footer.quick}>
+        <a href="#especialista"><span className="intent-title">{dict.specialist.who}</span><span className="intent-description">{dict.specialist.label}</span><span className="intent-arrow" aria-hidden="true">↗</span></a>
+        <a href="#primera-visita"><span className="intent-title">{dict.nav.firstVisit}</span><span className="intent-description">{dict.firstVisit.title}</span><span className="intent-arrow" aria-hidden="true">↗</span></a>
+        <a href="#contacto"><span className="intent-title">{dict.nav.book}</span><span className="intent-description">{dict.contact.talk} · {site.address.city}</span><span className="intent-arrow" aria-hidden="true">↗</span></a>
       </nav>
 
       <section id="servicios" className="home-services px-[6%] pb-20 md:px-[8%]">
@@ -65,12 +64,16 @@ export default async function HomePage({
           </div>
           <p className="max-w-sm text-sm leading-6 text-muted">{dict.servicesHome.lead}</p>
         </div>
+        <nav className="service-index" aria-label={dict.nav.services}>
+          {services.map(service => <a key={service.slug} href={`#${service.slug}`}>{dict.service[service.slug].kicker}<span aria-hidden="true">↓</span></a>)}
+        </nav>
         <div className="service-collection">
           {services.map((service, index) => {
             const copy = dict.service[service.slug];
             return (
               <Reveal key={service.slug} delay={index * 70} className="service-entry">
                 <Link
+                  id={service.slug}
                   href={localePath(locale, `/servicios/${service.slug}`)}
                   className="service-editorial group grid overflow-hidden bg-white md:grid-cols-2"
                 >
@@ -80,7 +83,7 @@ export default async function HomePage({
                       alt={copy.name}
                       width={640}
                       height={640}
-                      sizes="(min-width: 768px) 50vw, 100vw"
+                      sizes="(min-width: 1000px) 430px, (min-width: 768px) 40vw, 88vw"
                       className="h-auto w-full"
                     />
                   </div>
@@ -118,6 +121,11 @@ export default async function HomePage({
             </li>
           ))}
         </ol>
+        <aside className="visit-expectations">
+          <h3>{dict.firstVisit.includedTitle}</h3>
+          <ul>{dict.firstVisit.included.map(item => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul>
+          <a href={whatsappUrl(dict.whatsapp.firstVisit)} target="_blank" rel="noopener noreferrer">{dict.firstVisit.cta}<span aria-hidden="true">↗</span></a>
+        </aside>
       </section>
 
       <section id="especialista" className="specialist-section grid items-center gap-10 px-[6%] py-20 md:grid-cols-2 md:px-[8%] md:py-28">
@@ -135,17 +143,17 @@ export default async function HomePage({
           <p className="text-[11px] uppercase tracking-[0.18em] text-muted">{dict.specialist.label}</p>
           <h2 className="mt-3 font-display text-4xl tracking-[-0.045em] md:text-6xl">{dict.specialist.title}</h2>
           <p className="mt-4 text-sm uppercase tracking-[0.12em]">{dict.specialist.role}</p>
-          <p className="mt-5 max-w-lg text-base leading-7 text-muted">{dict.specialist.body}</p>
+          <p className="mt-5 max-w-lg text-base leading-7 text-muted">{dict.intro.body}</p>
           <ul className="mt-6 divide-y divide-line border-y border-line">
-            {dict.specialist.bullets.map((bullet, index) => (
+            {dict.specialist.bullets.map((bullet) => (
               <li key={bullet} className="py-3 text-sm">
-                <span className="mr-4 text-[#6d8a12]">0{index + 1}</span>
+                <span className="mr-4 text-[#6d8a12]" aria-hidden="true">✓</span>
                 {bullet}
               </li>
             ))}
           </ul>
           <Link href={localePath(locale, "/especialista")} className="mt-8 inline-block border-b border-ink py-2 text-sm">
-            {dict.specialist.cta} ↗
+            {dict.specialist.who} ↗
           </Link>
         </div>
       </section>
