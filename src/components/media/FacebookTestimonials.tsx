@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { facebookTestimonials } from "@/content/testimonials";
 import type { Locale } from "@/lib/i18n";
 
@@ -12,7 +9,6 @@ const copy = {
 
 export function FacebookTestimonials({ locale }: { locale: Locale }) {
   const text = copy[locale];
-  const [active, setActive] = useState<string | null>(null);
   return (
     <section className="facebook-stories" aria-labelledby="facebook-stories-title">
       <div className="facebook-stories-heading"><h2 id="facebook-stories-title">{text.title}</h2><p>{text.lead}</p></div>
@@ -20,28 +16,16 @@ export function FacebookTestimonials({ locale }: { locale: Locale }) {
         {facebookTestimonials.map((item, index) => (
           <article key={item.id} className="facebook-video-card">
             <div className="facebook-video-stage">
-              {active === item.id ? (
-                <iframe
-                  src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(item.url)}&show_text=false&width=360&autoplay=true`}
-                  title={`${text.video} ${index + 1} — Facebook`}
-                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                  allowFullScreen
-                />
-              ) : (
-                <button type="button" onClick={() => {
-                  document.querySelectorAll("video").forEach(video => video.pause());
-                  setActive(item.id);
-                }} aria-label={`${locale === "en" ? "Play" : locale === "quy" ? "Qaway" : "Reproducir"} ${text.video} ${index + 1}`}>
-                  <span className="facebook-cover-brand">conteña<span>.</span></span>
-                  <span className="facebook-cover-play" aria-hidden="true">▶</span>
-                  <span>{text.video} {String(index + 1).padStart(2, "0")}</span>
-                  <small>Facebook Reels</small>
-                </button>
-              )}
+              <iframe
+                src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(item.url)}&show_text=false&width=360&autoplay=false`}
+                title={`${text.video} ${index + 1} — Facebook`}
+                loading="eager"
+                allow="encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
+              />
             </div>
             <div className="facebook-video-caption">
               <strong>{text.video} {String(index + 1).padStart(2, "0")}</strong>
-              {active === item.id && <button type="button" onClick={() => setActive(null)}>{locale === "en" ? "Close" : locale === "quy" ? "Wichqay" : "Cerrar"} ×</button>}
               <a href={item.url} target="_blank" rel="noopener noreferrer">{text.open} ↗</a>
             </div>
           </article>
