@@ -214,3 +214,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .center-gallery-photos { grid-template-columns: 1fr; gap: 35px; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 48px; max-width: 440px; }
 }
+
+/* Home photography keeps its complete source frame at every breakpoint. */
+.home-page .hero-editorial { position: relative; background: #07110b; }
+.home-page .hero-editorial .hero-photo { object-fit: contain; object-position: center; }
+.home-page .service-editorial { align-items: start; }
+.home-page .service-editorial .service-photo { min-height: 0; width: 100%; }
+.home-page .specialist-section .specialist-photo { min-height: 0; }
+@media (max-width: 767px) {
+  .home-page .hero-editorial { height: auto; min-height: 0; padding-top: 80px; }
+  .home-page .hero-editorial .hero-image-frame { position: relative; inset: auto; width: 100%; aspect-ratio: 1672 / 941; }
+  .home-page .hero-editorial .hero-shade, .home-page .hero-side { display: none; }
+  .home-page .hero-editorial .hero-content { min-height: 0; padding-top: 36px; padding-bottom: 100px; }
+}

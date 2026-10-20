@@ -6,13 +6,13 @@ import { localePath, type Locale } from "@/lib/i18n";
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <section className="hero-editorial relative min-h-[100svh] overflow-hidden bg-ink-deep text-white">
-      <div className="absolute inset-0"><Image
+      <div className="hero-image-frame absolute inset-0"><Image
         src="/images/hero-editorial.webp"
         alt=""
         fill
         preload
         sizes="100vw"
-        className="hero-photo object-cover object-center"
+        className="hero-photo object-contain object-center"
       /></div>
       <div className="hero-shade absolute inset-0" />
       <div className="hero-content relative z-10 flex min-h-[100svh] items-end px-[6%] pt-28 pb-16 md:items-center md:px-[5%] md:pb-20">

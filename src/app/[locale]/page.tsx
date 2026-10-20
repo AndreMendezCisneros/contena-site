@@ -69,13 +69,14 @@ export default async function HomePage({
                   href={localePath(locale, `/servicios/${service.slug}`)}
                   className="service-editorial group grid overflow-hidden bg-white md:grid-cols-2"
                 >
-                  <div className={`relative min-h-64 ${service.featured ? "md:min-h-96" : "md:min-h-72"}`}>
+                  <div className="service-photo">
                     <Image
                       src={service.image}
                       alt={copy.name}
-                      fill
+                      width={640}
+                      height={640}
                       sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="h-auto w-full"
                     />
                   </div>
                   <div className="service-copy flex flex-col justify-end p-6 md:p-8">
@@ -118,13 +119,14 @@ export default async function HomePage({
       </section>
 
       <section className="specialist-section grid items-center gap-10 px-[6%] py-20 md:grid-cols-2 md:px-[8%] md:py-28">
-        <div className="relative min-h-[520px]">
+        <div className="specialist-photo relative">
           <Image
             src="/images/doctor-contena.jpg"
             alt={dict.specialist.alt}
-            fill
+            width={1400}
+            height={1795}
             sizes="(min-width: 768px) 45vw, 100vw"
-            className="object-cover object-top"
+            className="h-auto w-full"
           />
         </div>
         <div>
