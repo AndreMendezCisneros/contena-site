@@ -337,3 +337,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .visit-expectations h3 { font-size: 26px; }
   .visit-expectations > a { margin-top: 8px; }
 }
+
+.facebook-stories { margin-top: 65px; padding-top: 35px; border-top: 1px solid #ffffff28; }
+.facebook-stories-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; margin-bottom: 28px; }
+.facebook-stories-heading h2 { font-family: var(--font-syne),sans-serif; font-size: clamp(25px,2.6vw,36px); letter-spacing: -.035em; line-height: 1.2; }
+.facebook-stories-heading p { font-size: 13px; line-height: 1.8; max-width: 42ch; color: #c1cec5; }
+.facebook-stories-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+.facebook-stories-grid a { display: flex; align-items: center; gap: 15px; padding: 22px 16px; border: 1px solid #ffffff28; transition: background .2s; }
+.facebook-stories-grid a:hover { background: #ffffff0c; }
+.facebook-stories-grid a > span:last-child { margin-left: auto; color: #c4ef24; }
+.facebook-play { color: #c4ef24; font-size: 15px; }
+.facebook-stories-grid strong { display: block; font-size: 15px; font-weight: 500; }
+.facebook-stories-grid small { display: block; margin-top: 6px; font-size: 11px; color: #b4c6b9; }
+.facebook-stories-note { margin-top: 20px; color: #b4c6b9; font-size: 12px; line-height: 1.7; }
+@media(max-width:1000px) { .facebook-stories-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:767px) { .facebook-stories-heading { display: block; } .facebook-stories-heading p { margin-top: 18px; } .facebook-stories-grid a { gap: 10px; padding: 20px 12px; } }

@@ -1,3 +1,4 @@
+import { FacebookTestimonials } from "@/components/media/FacebookTestimonials";
 import { TestimonialCarousel } from "@/components/media/TestimonialCarousel";
 import { PageIntro } from "@/components/layout/PageIntro";
 import { testimonials } from "@/content/testimonials";
@@ -20,7 +21,7 @@ export default async function StoriesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: localeParam } = await params;
-  const { dict } = loadLocale(localeParam);
+  const { locale, dict } = loadLocale(localeParam);
   const items = testimonials.map((item) => ({
     slug: item.slug,
     src: item.video,
@@ -41,6 +42,7 @@ export default async function StoriesPage({
           prevLabel={dict.stories.prev}
           nextLabel={dict.stories.next}
         />
+        <FacebookTestimonials locale={locale} />
         <p className="mt-8 text-xs tracking-[0.08em] text-white/50 uppercase">{dict.common.individual}</p>
       </section>
     </main>

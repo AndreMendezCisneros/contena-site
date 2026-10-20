@@ -1,3 +1,4 @@
+import { FacebookTestimonials } from "@/components/media/FacebookTestimonials";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/contact";
@@ -166,6 +167,7 @@ export default async function HomePage({
           <p>{dict.stories.lead}</p>
         </div>
         <TestimonialCarousel items={testimonials.map(item => ({ slug: item.slug, src: item.video, poster: item.poster, ...dict.stories.items[item.slug] }))} playLabel={dict.stories.play} prevLabel={dict.stories.prev} nextLabel={dict.stories.next} />
+        <FacebookTestimonials locale={locale} />
         <div className="stories-footer"><p>{dict.stories.note}</p><Link href={localePath(locale, "/testimonios")} className="action-link">{dict.nav.stories} ↗</Link></div>
       </section>
       <section className="home-faq" aria-labelledby="home-faq-title">
