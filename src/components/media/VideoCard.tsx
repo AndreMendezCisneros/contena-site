@@ -39,7 +39,7 @@ export function VideoCard({
 
   return (
     <figure className="min-w-0">
-      <div className="relative aspect-[9/16] max-h-[660px] overflow-hidden bg-ink-deep">
+      <div className="video-stage relative aspect-[9/16] max-h-[660px] overflow-hidden bg-ink-deep">
         <video
           ref={videoRef}
           src={src}
@@ -49,9 +49,7 @@ export function VideoCard({
           className="h-full w-full object-contain"
           aria-label={name}
           onPlay={() => setPlaying(true)}
-          onPause={() => {
-            if (videoRef.current?.ended) setPlaying(false);
-          }}
+          onPause={() => setPlaying(false)}
           onEnded={() => {
             const video = videoRef.current;
             if (!video) return;

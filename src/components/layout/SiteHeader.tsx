@@ -68,12 +68,12 @@ export function SiteHeader({
         </Link>
         <nav className="hidden items-center gap-7 text-[12px] uppercase tracking-[0.14em] lg:flex">
           {links.map(([label, path]) => (
-            <Link key={path} href={localePath(locale, path)} className="hover:text-lime">
+            <Link key={path} href={localePath(locale, path)} aria-current={pathname === localePath(locale, path) ? "page" : undefined} className="nav-link">
               {label}
             </Link>
           ))}
-          <Link href={localePath(locale, "/contacto")} className="text-lime">
-            {dict.nav.book}
+          <Link href={localePath(locale, "/contacto")} className="nav-book">
+            {dict.nav.book} <span aria-hidden="true">↗</span>
           </Link>
           <LocaleLinks locale={locale} pathname={pathname} />
         </nav>

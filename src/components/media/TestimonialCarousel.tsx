@@ -81,6 +81,14 @@ export function TestimonialCarousel({
         ref={scroller}
         tabIndex={0}
         onKeyDown={onKeyDown}
+        onScroll={() => {
+          const root = scroller.current;
+          if (!root) return;
+          const cards = Array.from(root.children) as HTMLElement[];
+          const closest = cards.reduce((best, card, i) =>
+            Math.abs(card.offsetLeft - root.offsetLeft - root.scrollLeft) < Math.abs(cards[best].offsetLeft - root.offsetLeft - root.scrollLeft) ? i : best, 0);
+          setIndex(closest);
+        }}
         aria-label={playLabel}
         className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 focus-visible:outline-offset-8"
       >

@@ -6,16 +6,16 @@ export const testimonials = [
   {
     slug: "alejandra",
     video: "/videos/testimonio-alejandra.mp4",
-    poster: "/images/service-wellness.jpg",
+    poster: "/images/testimonio-alejandra.jpg",
   },
   {
     slug: "becker",
     video: "/videos/testimonio-becker.mp4",
-    poster: "/images/service-rehabilitation.jpg",
+    poster: "/images/testimonio-becker.jpg",
   },
   {
     slug: "sonia",
     video: "/videos/testimonio-sonia.mp4",
-    poster: "/images/service-chiropractic.jpg",
+    poster: "/images/testimonio-sonia.jpg",
   },
 ] as const;
