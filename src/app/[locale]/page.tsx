@@ -48,9 +48,14 @@ export default async function HomePage({
         </Reveal>
       </section>
 
-      <CenterJourney locale={locale} dict={dict} />
+      <nav className="home-shortcuts" aria-label={dict.footer.quick}>
+        <a href="#servicios">{dict.nav.services}<span aria-hidden="true">↘</span></a>
+        <a href="#primera-visita">{dict.nav.firstVisit}<span aria-hidden="true">↘</span></a>
+        <a href="#especialista">{dict.nav.specialist}<span aria-hidden="true">↘</span></a>
+        <a href="#contacto">{dict.contact.directions}<span aria-hidden="true">↘</span></a>
+      </nav>
 
-      <section className="home-services px-[6%] pb-20 md:px-[8%]">
+      <section id="servicios" className="home-services px-[6%] pb-20 md:px-[8%]">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="text-[11px] uppercase tracking-[0.18em] text-muted">{dict.servicesHome.label}</p>
@@ -60,11 +65,11 @@ export default async function HomePage({
           </div>
           <p className="max-w-sm text-sm leading-6 text-muted">{dict.servicesHome.lead}</p>
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="service-collection">
           {services.map((service, index) => {
             const copy = dict.service[service.slug];
             return (
-              <Reveal key={service.slug} delay={index * 70} className={service.featured ? "md:col-span-2" : ""}>
+              <Reveal key={service.slug} delay={index * 70} className="service-entry">
                 <Link
                   href={localePath(locale, `/servicios/${service.slug}`)}
                   className="service-editorial group grid overflow-hidden bg-white md:grid-cols-2"
@@ -80,14 +85,10 @@ export default async function HomePage({
                     />
                   </div>
                   <div className="service-copy flex flex-col justify-end p-6 md:p-8">
-                    {service.featured ? (
-                      <p className="mb-3 text-[11px] uppercase tracking-[0.16em] text-[#6d8a12]">
-                        {copy.kicker}
-                      </p>
-                    ) : null}
-                    <p className="text-[12px] uppercase tracking-[0.14em] text-muted">{copy.kicker}</p>
-                    <div className="service-number" aria-hidden="true">0{index + 1} <span>↗</span></div><h3 className="mt-2 font-display text-3xl tracking-[-0.04em]">{copy.name}</h3>
+                    <p className="service-kicker">{copy.kicker}</p>
+                    <h3 className="mt-2 font-display text-3xl tracking-[-0.04em]">{copy.name}</h3>
                     <p className="mt-3 text-sm leading-6 text-muted">{copy.summary}</p>
+                    <span className="service-detail-link">{dict.serviceLabels.expect}<span aria-hidden="true">↗</span></span>
                   </div>
                 </Link>
               </Reveal>
@@ -99,7 +100,7 @@ export default async function HomePage({
         </Link>
       </section>
 
-      <section className="first-visit-section bg-lime-soft px-[6%] py-20 md:px-[8%]">
+      <section id="primera-visita" className="first-visit-section bg-lime-soft px-[6%] py-20 md:px-[8%]">
         <p className="text-[11px] uppercase tracking-[0.18em]">{dict.firstVisit.label}</p>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
           <h2 className="max-w-2xl font-display text-4xl tracking-[-0.045em] md:text-6xl">{dict.firstVisit.title}</h2>
@@ -107,6 +108,7 @@ export default async function HomePage({
             {dict.firstVisit.cta} ↗
           </Link>
         </div>
+        <p className="first-visit-lead">{dict.firstVisit.lead}</p>
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {dict.firstVisit.steps.map((step, index) => (
             <li key={step.title} className="border-t border-ink/20 pt-5">
@@ -118,7 +120,7 @@ export default async function HomePage({
         </ol>
       </section>
 
-      <section className="specialist-section grid items-center gap-10 px-[6%] py-20 md:grid-cols-2 md:px-[8%] md:py-28">
+      <section id="especialista" className="specialist-section grid items-center gap-10 px-[6%] py-20 md:grid-cols-2 md:px-[8%] md:py-28">
         <div className="specialist-photo relative">
           <Image
             src="/images/doctor-contena.jpg"
@@ -148,6 +150,8 @@ export default async function HomePage({
         </div>
       </section>
 
+      <CenterJourney locale={locale} dict={dict} />
+
       <section className="home-stories bg-ink-deep px-[6%] py-20 text-white md:px-[8%]">
         <div className="stories-heading">
           <div><p className="eyebrow text-lime">{dict.stories.label}</p><h2>{dict.stories.title}</h2></div>
@@ -156,7 +160,19 @@ export default async function HomePage({
         <TestimonialCarousel items={testimonials.map(item => ({ slug: item.slug, src: item.video, poster: item.poster, ...dict.stories.items[item.slug] }))} playLabel={dict.stories.play} prevLabel={dict.stories.prev} nextLabel={dict.stories.next} />
         <div className="stories-footer"><p>{dict.stories.note}</p><Link href={localePath(locale, "/testimonios")} className="action-link">{dict.nav.stories} ↗</Link></div>
       </section>
-      <section className="home-contact bg-lime px-[6%] py-20 text-ink md:px-[8%]">
+      <section className="home-faq" aria-labelledby="home-faq-title">
+        <div className="home-faq-heading">
+          <p>{dict.contact.faqTitle}</p>
+          <h2 id="home-faq-title">{dict.firstVisit.faqTitle}</h2>
+          <Link href={localePath(locale, "/primera-visita")} className="action-link">{dict.nav.firstVisit}<span aria-hidden="true">↗</span></Link>
+        </div>
+        <div className="home-faq-list">
+          {[...dict.firstVisit.faqs, ...dict.contact.faqs].map((faq) => (
+            <details key={faq.q}><summary>{faq.q}<span aria-hidden="true">+</span></summary><p>{faq.a}</p></details>
+          ))}
+        </div>
+      </section>
+      <section id="contacto" className="home-contact bg-lime px-[6%] py-20 text-ink md:px-[8%]">
         <p className="text-[11px] uppercase tracking-[0.18em]">{dict.contact.label}</p>
         <h2 className="mt-3 max-w-3xl font-display text-5xl leading-[0.95] tracking-[-0.05em] md:text-7xl">
           {dict.contact.title}

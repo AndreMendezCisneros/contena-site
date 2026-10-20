@@ -14,7 +14,7 @@ export function CenterJourney({ dict, locale }: { dict: Dictionary; locale: Loca
         <Link href={localePath(locale, "/el-centro")} className="action-link">{dict.nav.center} <span aria-hidden="true">↗</span></Link>
       </div>
       <div className="center-gallery-photos">
-        {gallery.map((photo, index) => (
+        {gallery.slice(0, 1).map((photo, index) => (
           <figure key={photo.key}>
             <Image src={photo.image} alt={dict.center.captions[photo.key]}
               width={index === 0 ? 1792 : 640} height={index === 0 ? 2390 : 640}

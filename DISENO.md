@@ -25,3 +25,7 @@ Se conservan las rutas e idiomas existentes (español, inglés y quechua), las f
 La integración GitHub fue sugerida, no conectada automáticamente. La skill oficial `playwright-interactive` se instaló en el entorno del usuario; la comprobación visual de esta revisión usa el navegador integrado disponible.
 
 Revisión posterior: se consultó e instaló frontend-design de https://github.com/anthropics/skills/tree/main/skills/frontend-design. Se prioriza estabilidad visual, fotos sin recorte y jerarquía sobre animaciones de tamaño. Las imágenes secundarias originales son de 640 × 640; el cambio no inventa detalle adicional.
+
+## Revisión de distribución — 20 de octubre de 2026
+
+La distribución vigente sustituye las tarjetas de servicios por filas alternadas y adelanta los servicios a la galería. Primera visita en dos columnas, retrato profesional, fotografía del centro sin duplicados, videos, preguntas frecuentes y contacto. La portada aprobada no cambia. Consultar INVESTIGACION-DISENO.md para fuentes y propuestas pendientes de datos del cliente.
