@@ -73,11 +73,11 @@ export function VideoCard({
           </button>
         )}
       </div>
-      <figcaption className="mt-4 flex items-baseline justify-between gap-4 border-t border-white/30 pt-3 text-sm">
-        <span>{name}</span>
-        <span className="text-white/70">{title}</span>
+      <figcaption className="testimonial-caption">
+        <span className="testimonial-caption-name">{name}</span>
+        <span className="testimonial-caption-title">{title}</span>
       </figcaption>
-      {quote ? <blockquote className="mt-3 text-sm leading-6 text-white/75">{quote}</blockquote> : null}
+      {quote ? <blockquote className="testimonial-quote">{quote}</blockquote> : null}
     </figure>
   );
 }
