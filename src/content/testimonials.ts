@@ -23,6 +23,5 @@ export const testimonials = [
 // Original Facebook posts supplied by the client; content not independently transcribed.
 export const facebookTestimonials = [
   "944685142853005", "342316537781504", "219083126865596",
-  "1533858366976457", "888538086209534", "701239864848534",
-  "1190784545769231", "4862430187119019",
+  "1533858366976457", "888538086209534",
 ].map(id => ({ id, url: `https://www.facebook.com/reel/${id}/` }));
